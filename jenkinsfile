@@ -17,7 +17,7 @@ pipeline {
         stage('✅ Deploy') {
             steps {
                 sh '''
-                    aws cloudformation create-stack --template-body  file://cloudformation_rrodr.template --stack-name CdApi --capabilities CAPABILITY_IAM --region eu-west-1
+                    aws cloudformation create-stack --template-body  file://cloudformation_rrodr.template --stack-name robertcdapi --capabilities CAPABILITY_IAM --region eu-west-1
                     aws cloudformation wait stack-create-complete --stack-name robertcdapi --region eu-west-1 
                     aws cloudformation describe-stack-events --stack-name robertcdapi --region eu-west-1
                 '''
